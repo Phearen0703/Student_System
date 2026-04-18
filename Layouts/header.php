@@ -57,6 +57,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/Student_System/config.php";
                             <span class="align-middle">Departments</span>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="<?php echo $url; ?>Courses/index.php">
+                            <i class="fa-solid fa-list"></i> 
+                            <span class="align-middle">Courses</span>
+                        </a>
+                    </li>
 
                     <li class="sidebar-header">Account</li>
                     
