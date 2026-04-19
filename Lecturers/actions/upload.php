@@ -1,8 +1,8 @@
 <?php
 include "../../config.php";
 if(isset($_POST['submit'])){
-    // Generate a student code
-    $query = "SELECT id FROM students ORDER BY id DESC LIMIT 1";
+    // Generate a lecturer code
+    $query = "SELECT id FROM lecturers ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
     } else {
         $new_id = 1; // Start from 1 if no records exist
     }
-    $student_code = "ST" . str_pad($new_id, 4, '0', STR_PAD_LEFT);
+    $lecturer_code = "LC" . str_pad($new_id, 4, '0', STR_PAD_LEFT);
 
     // Collect form data
     $name = $_POST['name'];
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
     $dob = $_POST['dob'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $address = $_POST['address'];
+    $department_id = $_POST['department'];
 
     // Handle file upload
     $image_name = $_FILES['image']['name'];
@@ -35,11 +35,11 @@ if(isset($_POST['submit'])){
     }
   
 
-    $sql = "INSERT INTO students (student, name, gender, dob, email, phone, address, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO lecturers (dep_id, lecturer_code, name, gender, dob, gmail, phone, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     if($stmt = mysqli_prepare($conn, $sql)){
-        mysqli_stmt_bind_param($stmt, "ssssssss", $student_code, $name, $gender, $dob, $email, $phone, $address, $new_to_save);
+        mysqli_stmt_bind_param($stmt, "isssssss", $department_id, $lecturer_code, $name, $gender, $dob, $email, $phone, $new_to_save);
         if(mysqli_stmt_execute($stmt)){
-            header("Location: ../index.php?msg=Student created successfully");
+            header("Location: ../index.php?msg=Lecturer created successfully");
             exit();
         } else {
             echo "Error: " . mysqli_error($conn);

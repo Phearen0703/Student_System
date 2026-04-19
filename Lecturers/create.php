@@ -58,11 +58,6 @@ if(mysqli_num_rows($result) > 0){
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" id="address" name="address" rows="2" required></textarea>
-                            </div>
-
                                 <div class="mb-3">
                                     <label for="departement" class="form-label">Department</label>
                                     <select class="form-select" id="department" name="department" required>

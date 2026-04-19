@@ -3,7 +3,8 @@ $title = "Lecturers List";
 include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 
 
-$query = "SELECT * FROM lecturers ORDER BY id DESC";
+$query = "SELECT lecturers.*, departments.name AS department FROM lecturers
+INNER JOIN departments ON lecturers.dep_id = departments.id ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result) > 0){
     $lecturers = mysqli_fetch_fields($result);
@@ -45,12 +46,12 @@ if(mysqli_num_rows($result) > 0){
                     echo "<tr>";
                     echo "<td>" . ++$i . "</td>";
                     echo "<td>" . $row['department'] . "</td>";
-                    echo "<td><img src='" . ($row['image'] ? $url . "Assets/img/photos/" . $row['image'] : $url . "Assets/img/photos/default.png") . "' alt='Profile Image' width='50'></td>";
-                    echo "<td>" . $row['student'] . "</td>";
+                    echo "<td><img src='" . ($row['img'] ? $url . "Assets/img/photos/" . $row['img'] : $url . "Assets/img/photos/default.png") . "' alt='Profile Image' width='50'></td>";
+                    echo "<td>" . $row['lecturer_code'] . "</td>";
                     echo "<td>" . $row['name'] . "</td>";
                     echo "<td>" . $row['gender'] . "</td>";
                     echo "<td>" . date("d/m/Y", strtotime($row['dob'])) .   "</td>";
-                    echo "<td>" . $row['email'] . "</td>";
+                    echo "<td>" . $row['gmail'] . "</td>";
                     echo "<td>" . $row['phone'] . "</td>";
                     echo "<td>
                             <a href='edit.php?id=" . $row['id'] . "' class='btn btn-primary'>Edit</a>
