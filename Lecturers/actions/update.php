@@ -8,8 +8,8 @@ if(isset($_POST['submit'])){
     $dob = $_POST['dob'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $address = $_POST['address'];
     $old_image = $_POST['old_image'];
+    $department_id = $_POST['department'];
  
 
     // Handle file upload
@@ -33,11 +33,11 @@ if(isset($_POST['submit'])){
     }
 
 
-    $sql = "UPDATE students SET name = ?, gender = ?, dob = ?, email = ?, phone = ?, address = ?, image = ? WHERE id = ?";
+    $sql = "UPDATE lecturers SET dep_id = ?, name = ?, gender = ?, dob = ?, gmail = ?, phone = ?,  img = ? WHERE id = ?";
     if($stmt = mysqli_prepare($conn, $sql)){
-        mysqli_stmt_bind_param($stmt, "sssssssi", $name, $gender, $dob, $email, $phone, $address, $new_to_save, $id);
+        mysqli_stmt_bind_param($stmt, "issssssi", $department_id, $name, $gender, $dob, $email, $phone, $new_to_save, $id);
         if(mysqli_stmt_execute($stmt)){
-            header("Location: ../index.php?msg=Student updated successfully");
+            header("Location: ../index.php?msg=Lecturers updated successfully");
             exit();
         } else {
             echo "Error: " . mysqli_error($conn);
