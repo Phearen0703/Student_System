@@ -1,6 +1,8 @@
 <?php
-include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 $title = "Edit Student";
+$page = "Students";
+include_once dirname(__FILE__, 2) . "/Layouts/header.php";
+
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];

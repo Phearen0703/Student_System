@@ -1,6 +1,6 @@
 <?php
-if (!isset($title)) {
-    $title = "Student System | Admin";
+if(!isset($page)) {
+    $page = "dashboard";
 }
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Student_System/config.php";
 ?>
@@ -37,36 +37,42 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/Student_System/config.php";
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">Main Menu</li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php echo $page == 'dashboard' ? "active" : "" ?>">
                         <a class="sidebar-link" href="<?php echo $url; ?>index.php">
                             <i class="fa-solid fa-house align-middle"></i> 
                             <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php echo $page == 'Students' ? "active" : "" ?>">
                         <a class="sidebar-link" href="<?php echo $url; ?>Students/index.php">
                             <i class="fa-solid fa-user-graduate align-middle"></i> 
                             <span class="align-middle">Students</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php echo $page == 'Departments' ? "active" : "" ?>">
                         <a class="sidebar-link" href="<?php echo $url; ?>Departments/index.php">
                             <i class="fa-solid fa-building-columns align-middle"></i> 
                             <span class="align-middle">Departments</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php echo $page == 'Courses' ? "active" : "" ?>">
                         <a class="sidebar-link" href="<?php echo $url; ?>Courses/index.php">
                             <i class="fa-solid fa-list"></i> 
                             <span class="align-middle">Courses</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php echo $page == 'Lecturers' ? "active" : "" ?>">
                         <a class="sidebar-link" href="<?php echo $url; ?>Lecturers/index.php">
                             <i class="fa-solid fa-person"></i> 
                             <span class="align-middle">Lecturers</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item <?php echo $page == 'Classes' ? "active" : "" ?>">
+                        <a class="sidebar-link" href="<?php echo $url; ?>Classes/index.php">
+                            <i class="fa-solid fa-folder"></i>
+                            <span class="align-middle">Classes</span>
                         </a>
                     </li>
 

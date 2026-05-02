@@ -1,7 +1,9 @@
 <?php
+$title = "Edit Department";
+$page = "Departments";
 include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 include_once dirname(__FILE__, 2) . "/config.php";
-$title = "Edit Department";
+
 
 $id = $_GET['id'] ?? null;
 if (!$id) {

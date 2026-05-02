@@ -1,5 +1,6 @@
 <?php
 $title = "Students List";
+$page = "Students";
 include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 
 

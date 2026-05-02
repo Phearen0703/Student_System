@@ -1,6 +1,8 @@
 <?php
+$title = "Create Department";
+$page = "Departments";
 include_once dirname(__FILE__, 2) . "/Layouts/header.php";
-$title = "Create Departement"; 
+
 ?>
 
 <main class="content">

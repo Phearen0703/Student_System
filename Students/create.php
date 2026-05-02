@@ -1,6 +1,8 @@
 <?php
-include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 $title = "Create Student"; 
+$page = "Students";
+include_once dirname(__FILE__, 2) . "/Layouts/header.php";
+
 ?>
 
 <main class="content">

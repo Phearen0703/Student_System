@@ -1,5 +1,7 @@
 <?php
 include_once 'Layouts/header.php';
+$title = "dashboard";
+$page = "dashboard";
 
 ?>
 

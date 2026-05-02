@@ -1,6 +1,8 @@
 <?php
-include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 $title = "Create Lecturer"; 
+$page = "Lecturers";
+include_once dirname(__FILE__, 2) . "/Layouts/header.php";
+
 
 $sql = "SELECT * FROM departments";
 $result = mysqli_query($conn, $sql);

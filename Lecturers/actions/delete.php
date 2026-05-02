@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
             exit();
         }
         mysqli_stmt_close($stmt);
-    } else {
+} else {
         echo "Error: " . mysqli_error($conn);
         exit();
     }
