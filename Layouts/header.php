@@ -75,6 +75,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/Student_System/config.php";
                             <span class="align-middle">Classes</span>
                         </a>
                     </li>
+                    <li class="sidebar-item <?php echo $page == 'Enrollments' ? "active" : "" ?>">
+                        <a class="sidebar-link" href="<?php echo $url; ?>Enrollments/index.php">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span class="align-middle">Enrollments</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item <?php echo $page == 'Grades' ? "active" : "" ?>">
+                        <a class="sidebar-link" href="<?php echo $url; ?>Grades/index.php">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span class="align-middle">Grades</span>
+                        </a>
+                    </li>
 
                     <li class="sidebar-header">Account</li>
                     

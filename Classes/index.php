@@ -6,8 +6,8 @@ include_once dirname(__FILE__, 2) . "/Layouts/header.php";
 
 $query = "SELECT classes.id, classes.class_name, classes.schedule, classes.room, courses.course_name AS course_name, lecturers.name AS lecturer_name
 FROM classes
-INNER JOIN lecturers ON classes.lecturer_id = lecturers.id
-INNER JOIN courses ON classes.course_id = courses.id;";
+LEFT JOIN lecturers ON classes.lecturer_id = lecturers.id
+LEFT JOIN courses ON classes.course_id = courses.id;";
 $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result) > 0){
     $classes = mysqli_fetch_fields($result);
@@ -20,7 +20,7 @@ if(mysqli_num_rows($result) > 0){
     <div class="container-fluid p-0">
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h3 mb-3"><strong>Course</strong> List</h1>
+            <h1 class="h3 mb-3"><strong>Classes</strong> List</h1>
             <a href="create.php" class="btn btn-success">
                 Add New Classes
             </a>
@@ -51,7 +51,7 @@ if(mysqli_num_rows($result) > 0){
                     echo "<td>" . $row['room'] . "</td>";
                     echo "<td>
                             <a href='edit.php?id=" . $row['id'] . "' class='btn btn-primary'>Edit</a>
-                            <a href='" . $url . "Courses/actions/delete.php?id=" . $row['id'] . "' class='btn btn-danger'>Delete</a>
+                            <a href='" . $url . "Classes/actions/delete.php?id=" . $row['id'] . "' class='btn btn-danger'>Delete</a>
                           </td>";
                     echo "</tr>";
                 }
